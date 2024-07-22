@@ -18,7 +18,8 @@ jobs:
         with:
           submodules: true
       - run: sudo apt-get update && sudo apt-get install libgtest-dev libgmock-dev -y
-      - run: cmake -S ../$PROJECT_NAME -B $BUILD_PATH
+      - run: pwd
+      - run: cmake -S . -B $BUILD_PATH
       - run: cmake --build $BUILD_PATH
       - run: cd $BUILD_PATH
       - run: ctest
