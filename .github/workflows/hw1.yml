@@ -5,10 +5,10 @@ env:
   BUILD_PATH: "build"
 
 
-on:
-  push:
-    paths:
-      - '$PROJECT_NAME/**'
+# on:
+#   push:
+#     paths:
+#       - '$PROJECT_NAME/**'
 
 jobs:
   build:
@@ -19,6 +19,6 @@ jobs:
           submodules: true
       - run: sudo apt-get update && sudo apt-get install libgtest-dev libgmock-dev -y
       - run: mkdir $BUILD_PATH && cd $BUILD_PATH
-      - run: cmake -S ../ -B .
+      - run: cmake -S ../$PROJECT_NAME -B .
       - run: cmake --build .
       - run: ctest
