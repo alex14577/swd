@@ -1,14 +1,14 @@
 name: 'C++ CI'
 
 env:
-  PROJECT_NAME: "hw1"
-  BUILD_PATH: "build"
+  PROJECT_NAME: hw1
+  BUILD_PATH: build
 
 
-# on:
-#   push:
-#     paths:
-#       - '$PROJECT_NAME/**'
+on:
+  push:
+    paths:
+      - $PROJECT_NAME/**
 
 jobs:
   build:
