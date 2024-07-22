@@ -1,11 +1,10 @@
 cmake_minimum_required(VERSION 3.23)
 
-project(dpi  LANGUAGES C CXX  VERSION 0.0.1)
+project(swd  LANGUAGES C CXX  VERSION 0.0.1)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include(dependencies.cmake)
 
 add_compile_options(-Wall -Wextra -Werror
 
@@ -28,5 +27,10 @@ add_compile_options(-Wall -Wextra -Werror
                     -Wno-missing-field-initializers)
 
 link_libraries(debug dl)
+
+enable_testing()
+include(dependencies.cmake)
+
+include(GoogleTest)
 
 add_subdirectory(hw1)
