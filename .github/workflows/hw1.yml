@@ -1,16 +1,14 @@
 name: 'C++ CI'
 
 env:
-  PROJECT_NAME: hw1
-  BUILD_PATH: hw1
+  PROJECT_NAME: "hw1"
+  BUILD_PATH: "build"
 
 
 on:
   push:
     paths:
       - '$PROJECT_NAME/**'
-    pull_request:
-      branches: [ $default-branch ]
 
 jobs:
   build:
