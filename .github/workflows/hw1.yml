@@ -9,6 +9,8 @@ on:
   push:
     paths:
       - '$PROJECT_NAME/**'
+    pull_request:
+      branches: [ $default-branch ]
 
 jobs:
   build:
