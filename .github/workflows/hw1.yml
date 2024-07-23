@@ -13,21 +13,24 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    uses: actions/checkout@v2
     steps:
       - name: Install dependencies
+        uses: actions/checkout@v2
         run: |
           sudo apt-get update && sudo apt-get install libgtest-dev libgmock-dev -y
       - name: Configure
+        uses: actions/checkout@v2
         run: |
           mkdir -p $BUILD_PATH
-          cmake -S./ -B./$BUILD_PATH -DCMAKE_BUILD_TYPE:STRING=Release
+          cmake -S./ -B./$BUILD_PATH -DCMAKE_BUILD_TYPE=Release
       - name: Build
+        uses: actions/checkout@v2
         working-directory: ./$BUILD_PATH
         run: |
           pwd
           cmake --build .
       - name: Test
+        uses: actions/checkout@v2
         working-directory: ./$BUILD_PATH
         run: |
           pwd
