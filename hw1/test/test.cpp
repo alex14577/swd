@@ -15,7 +15,7 @@ TEST(Number, Compare)
     Number b{ 2.12 };
     Number c{ 2.65 };
     Number d{ 2.65 };
-    Number e{ 0.0 };
+    Number e{ 0.0 }; 
 
     EXPECT_TRUE(a.isValid());
     EXPECT_TRUE(b.isValid());
