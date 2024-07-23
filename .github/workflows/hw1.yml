@@ -26,7 +26,7 @@ jobs:
       - name: Build
         working-directory: ${{ env.BUILD_PATH }}
         run: |
-           cmake --build $BUILD_PATH --target equation_solver_test
+           cmake --build . --target equation_solver_test
       - name: Test
         working-directory: ${{ env.BUILD_PATH }}
         run: |
