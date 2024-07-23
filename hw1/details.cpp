@@ -8,7 +8,7 @@ namespace solver::details {
 
 Number::Number(const Value _n) noexcept :
     n{ _n },
-    epsilon{ std::numeric_limits<Value>::epsilon() }
+    epsilon{ std::numeric_limits<Number::Value>::epsilon()  }
 { }
 
 Number::Number(const Value _n, const Value _epsilon) noexcept :
@@ -40,7 +40,6 @@ auto Number::sqrt() const noexcept -> Number
 {
     return { std::sqrt(n), epsilon };
 }
-
 
 bool Number::isValid() const noexcept
 {

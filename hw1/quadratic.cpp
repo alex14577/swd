@@ -5,10 +5,9 @@
 
 namespace solver {
 
-
-auto Quadratic::process(const details::Number &_a,
-                        const details::Number &_b, 
-                        const details::Number &_c) -> std::vector<details::Number>
+std::vector<details::Number> Quadratic::process(const details::Number &_a,
+                                                const details::Number &_b, 
+                                                const details::Number &_c) 
 {
     if (!_a.isValid()) {
         throw std::runtime_error("Coefficient 'a' is not valid"); 

@@ -21,5 +21,7 @@ jobs:
       - run: pwd
       - run: cmake -S . -B $BUILD_PATH
       - run: cmake --build $BUILD_PATH
+      - run: ls
       - run: cd $BUILD_PATH
+      - run: pwd
       - run: ctest

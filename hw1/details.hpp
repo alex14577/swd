@@ -2,6 +2,7 @@
 
 #include <compare>
 
+
 namespace solver::details {
 
 class Number {
@@ -34,4 +35,4 @@ private:
     Value epsilon;
 };
 
-} // namespace solver::details
+} // namespace details.
