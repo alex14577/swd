@@ -15,13 +15,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: true
-      - run: sudo apt-get update && sudo apt-get install libgtest-dev libgmock-dev -y
-      - run: pwd
-      - run: cmake -S . -B $BUILD_PATH
-      - run: cmake --build $BUILD_PATH
-      - run: ls
-      - run: cd $BUILD_PATH/
-      - run: pwd
-      - run: ctest
+      - name: Install dependencies
+        run: |
+          sudo apt-get update && sudo apt-get install libgtest-dev libgmock-dev -y
+      - name: Configure
+        run: |
+          mkdir -p $BUILD_PATH
+          cmake -S./ -B./$BUILD_PATH -DCMAKE_BUILD_TYPE:STRING=Release
+      - name: Build
+        working-directory: ./$BUILD_PATH
+        run: |
+          pwd
+          cmake --build .
+      - name: Test
+        working-directory: ./$BUILD_PATH
+        run: |
+          pwd
+          ctest
