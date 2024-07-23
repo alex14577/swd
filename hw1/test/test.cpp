@@ -11,9 +11,6 @@ using namespace details;
 
 TEST(Number, Compare)
 {
-    using namespace details;
-
-
     Number a{ 2.11 };
     Number b{ 2.12 };
     Number c{ 2.65 };
