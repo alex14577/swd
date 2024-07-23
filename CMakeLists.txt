@@ -5,7 +5,6 @@ project(swd  LANGUAGES C CXX  VERSION 0.0.1)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-
 add_compile_options(-Wall -Wextra -Werror
 
                     -Wcast-align
@@ -25,6 +24,8 @@ add_compile_options(-Wall -Wextra -Werror
                     -Wno-unused-function
                     -Wno-unused-parameter
                     -Wno-missing-field-initializers)
+
+add_link_options("-fuse-ld=lld")
 
 link_libraries(debug dl)
 

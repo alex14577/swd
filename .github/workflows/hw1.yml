@@ -17,18 +17,17 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install dependencies
         run: |
-          sudo apt-get update && sudo apt-get install libgtest-dev libgmock-dev -y
+          sudo apt update
+          sudo apt install clang lld libgtest-dev libgmock-dev -y
       - name: Configure
         run: |
           mkdir -p $BUILD_PATH
-          cmake -S./ -B./$BUILD_PATH -DCMAKE_BUILD_TYPE:STRING=Release
+          cmake -S./ -B./$BUILD_PATH -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_CXX_COMPILER=/usr/bin/clang++ -DCMAKE_CC_COMPILER=/usr/bin/clang
       - name: Build
         working-directory: ${{ env.BUILD_PATH }}
         run: |
-          pwd
           cmake --build .
       - name: Test
         working-directory: ${{ env.BUILD_PATH }}
         run: |
-          pwd
           ctest
