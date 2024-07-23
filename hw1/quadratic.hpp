@@ -13,4 +13,4 @@ public:
                                          const details::Number &c);
 };
 
-} // namespace solver.
+} // namespace solver. 
