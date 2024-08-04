@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.23)
+cmake_minimum_required(VERSION 3.22)
 
 project(swd  LANGUAGES C CXX  VERSION 0.0.1)
 
@@ -30,8 +30,9 @@ add_link_options("-fuse-ld=lld")
 link_libraries(debug dl)
 
 enable_testing()
-include(dependencies.cmake)
+include(cmake/dependencies.cmake)
 
 include(GoogleTest)
 
 add_subdirectory(hw1)
+add_subdirectory(hw2)
