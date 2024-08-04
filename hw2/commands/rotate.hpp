@@ -4,6 +4,7 @@
 
 #include <objects/rotatable.hpp>
 
+
 namespace game::command {
 
 class Rotate : public Command {

@@ -8,7 +8,7 @@ env:
 on:
   push:
     paths:
-      -  ${{ env.PROJECT_NAME }}/**
+      - hw2/**
 
 jobs:
   build:
