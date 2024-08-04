@@ -1,0 +1,37 @@
+name: 'C++ CI'
+
+env:
+  PROJECT_NAME: hw2
+  BUILD_PATH: build
+
+
+on:
+  push:
+    paths:
+      -  ${{ env.PROJECT_NAME }}/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          cd $(mktemp -d)
+          wget https://apt.llvm.org/llvm.sh
+          chmod +x llvm.sh
+          ./llvm.sh 18
+          sudo ln /usr/bin/clang++-18 /usr/bin/clang++
+          sudo ln /usr/bin/clang-18 /usr/bin/clang
+      - name: Configure
+        run: |
+          mkdir -p $BUILD_PATH
+          cmake -S./ -B./$BUILD_PATH -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_CXX_COMPILER=/usr/bin/clang++ -DCMAKE_CC_COMPILER=/usr/bin/clang
+      - name: Build
+        working-directory: ${{ env.BUILD_PATH }}
+        run: |
+           cmake --build . --target equation_solver_test
+      - name: Test
+        working-directory: ${{ env.BUILD_PATH }}
+        run: |
+          ctest
