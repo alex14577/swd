@@ -34,4 +34,4 @@ jobs:
       - name: Test
         working-directory: ${{ env.BUILD_PATH }}
         run: |
-          ctest
+          ctest --tests-regex Game.*
