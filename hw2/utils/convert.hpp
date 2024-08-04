@@ -6,10 +6,11 @@
 
 namespace game::utils {
 
+constexpr auto pi = std::numbers::pi;
+
 constexpr
 std::pair<double, double> convertToPolar(double _x, double _y, std::size_t directionsNumber)
 {
-    constexpr auto pi = std::numbers::pi;
     auto angle = std::atan2(_y, _x) / (2.0 * pi) * static_cast<double>(directionsNumber);
     auto ro = std::sqrt(_x*_x + _y*_y);
 
@@ -19,7 +20,6 @@ std::pair<double, double> convertToPolar(double _x, double _y, std::size_t direc
 constexpr
 std::pair<double, double> convertFromPolar(double _ro, double _positionAngle, std::size_t directionsNumber)
 {
-    constexpr auto pi = std::numbers::pi;
     auto x{ _ro * std::cos(_positionAngle * (2.0 * pi ) / directionsNumber) };
     auto y{ _ro * std::sin(_positionAngle * (2.0 * pi ) / directionsNumber) };
 
