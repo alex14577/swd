@@ -30,7 +30,7 @@ jobs:
       - name: Build
         working-directory: ${{ env.BUILD_PATH }}
         run: |
-           cmake --build . --target equation_solver_test
+           cmake --build . --target movement_test
       - name: Test
         working-directory: ${{ env.BUILD_PATH }}
         run: |

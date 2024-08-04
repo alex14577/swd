@@ -4,6 +4,7 @@
 
 #include <objects/movable.hpp>
 
+
 namespace game::command {
 
 class Move : public Command {
