@@ -22,12 +22,10 @@ jobs:
           wget https://apt.llvm.org/llvm.sh
           sudo chmod +x llvm.sh
           sudo ./llvm.sh 18
-          sudo ln /usr/bin/clang++-18 /usr/bin/clang++
-          sudo ln /usr/bin/clang-18 /usr/bin/clang
       - name: Configure
         run: |
           mkdir -p $BUILD_PATH
-          cmake -S./ -B./$BUILD_PATH -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_CXX_COMPILER=/usr/bin/clang++ -DCMAKE_CC_COMPILER=/usr/bin/clang
+          cmake -S./ -B./$BUILD_PATH -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_CXX_COMPILER=/usr/bin/clang++-18 -DCMAKE_CC_COMPILER=/usr/bin/clang-18
       - name: Build
         working-directory: ${{ env.BUILD_PATH }}
         run: |
