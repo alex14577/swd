@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install dependencies
         run: |
-          apt install libgtest-dev
+          sudo apt install libgtest-dev
           cd $(mktemp -d)
           wget https://apt.llvm.org/llvm.sh
           sudo chmod +x llvm.sh
