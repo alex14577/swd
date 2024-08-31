@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.22)
-
 project(swd  LANGUAGES C CXX  VERSION 0.0.1)
+
+option(BUILD_HW1 "Build hw1" OFF)
+option(BUILD_HW2 "Build hw2" OFF)
+option(BUILD_HW3 "Build hw3" OFF)
+
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -34,5 +38,14 @@ include(cmake/dependencies.cmake)
 
 include(GoogleTest)
 
-add_subdirectory(hw1)
-add_subdirectory(hw2)
+if(BUILD_HW1)
+    add_subdirectory(hw1)
+endif()
+
+if(BUILD_HW2)
+    add_subdirectory(hw2)
+endif()
+
+if(BUILD_HW3)
+    add_subdirectory(hw3)
+endif()
