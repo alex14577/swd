@@ -30,7 +30,7 @@ jobs:
       - name: Build
         working-directory: ${{ env.BUILD_PATH }}
         run: |
-           cmake --build . --target commands_test
+           cmake --build . --target commands_test -j$(nproc)
       - name: Test
         working-directory: ${{ env.BUILD_PATH }}
         run: |
