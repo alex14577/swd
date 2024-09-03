@@ -34,3 +34,4 @@
 # other
 build/
 .vscode/
+.cache/

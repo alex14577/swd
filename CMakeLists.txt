@@ -49,3 +49,7 @@ endif()
 if(BUILD_HW3)
     add_subdirectory(hw3)
 endif()
+
+if(BUILD_HW5)
+    add_subdirectory(hw5)
+endif()
