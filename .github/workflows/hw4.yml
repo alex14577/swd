@@ -1,0 +1,37 @@
+name: 'C++ CI'
+
+env:
+  PROJECT_NAME: hw4
+  BUILD_PATH: build
+
+
+on:
+  push:
+    paths:
+      - hw4/**
+      - .github/workflows/hw4.yml
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          sudo apt install libgtest-dev
+          cd $(mktemp -d)
+          wget https://apt.llvm.org/llvm.sh
+          sudo chmod +x llvm.sh
+          sudo ./llvm.sh 18
+      - name: Configure
+        run: |
+          mkdir -p $BUILD_PATH 
+          cmake -S./ -B./$BUILD_PATH -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_CXX_COMPILER=/usr/bin/clang++-18 -DCMAKE_CC_COMPILER=/usr/bin/clang-18 -D BUILD_HW4=ON
+      - name: Build
+        working-directory: ${{ env.BUILD_PATH }}
+        run: |
+           cmake --build . --target commands_test -j$(nproc)
+      - name: Test
+        working-directory: ${{ env.BUILD_PATH }}
+        run: |
+          ctest
