@@ -30,7 +30,7 @@ jobs:
       - name: Build
         working-directory: ${{ env.BUILD_PATH }}
         run: |
-           cmake --build . --target ioc_test -j$(nproc)
+           cmake --build . --target cmd_test -j$(nproc)
       - name: Test
         working-directory: ${{ env.BUILD_PATH }}
         run: |
