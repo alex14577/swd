@@ -1,0 +1,72 @@
+{
+    "page": {
+      "title": "Главная страница",
+      "slug": "home",
+      "meta": {
+        "description": "Это главная страница нашего сайта.",
+        "keywords": "главная, сайт, примеры"
+      },
+      "sections": ["hero", "text"],
+       "hero": {
+            "backgroundImage": "url.jpg",
+            "heading": "Добро пожаловать!",
+            "subheading": "Мы рады видеть вас на нашем сайте.",
+            "ctaButton": {
+              "text": "Узнать больше",
+              "link": "/about"
+            }
+        },
+        {
+          "content": {
+            "heading": "О нас",
+            "paragraphs": [
+              "Мы - компания, которая занимается разработкой веб-приложений.",
+              "Наша цель - создать удобные и эффективные решения для наших клиентов."
+            ]
+          }
+        },
+        {
+          "type": "gallery",
+          "content": {
+            "images": [
+              {
+                "src": "url-to-image-1.jpg",
+                "alt": "Описание изображения 1"
+              },
+              {
+                "src": "url-to-image-2.jpg",
+                "alt": "Описание изображения 2"
+              }
+            ]
+          }
+        },
+        {
+          "type": "contact-form",
+          "content": {
+            "heading": "Свяжитесь с нами",
+            "fields": [
+              {
+                "label": "Имя",
+                "type": "text",
+                "required": true
+              },
+              {
+                "label": "Email",
+                "type": "email",
+                "required": true
+              },
+              {
+                "label": "Сообщение",
+                "type": "textarea",
+                "required": false
+              }
+            ],
+            "submitButton": {
+              "text": "Отправить"
+            }
+          }
+        }
+      ]
+    }
+  }
+  
