@@ -4,6 +4,10 @@ project(swd  LANGUAGES C CXX  VERSION 0.0.1)
 option(BUILD_HW1 "Build hw1" OFF)
 option(BUILD_HW2 "Build hw2" OFF)
 option(BUILD_HW3 "Build hw3" OFF)
+option(BUILD_HW4 "Build hw4" OFF)
+option(BUILD_HW5 "Build hw5" OFF)
+option(BUILD_HW8 "Build hw8" OFF)
+option(BUILD_CMS "Build CMS" OFF)
 
 
 set(CMAKE_CXX_STANDARD 23)
@@ -54,4 +58,12 @@ if(BUILD_HW4)
 endif()
 if(BUILD_HW5)
     add_subdirectory(hw5)
+endif()
+
+if(BUILD_HW8)
+    add_subdirectory(hw8)
+endif()
+
+if(BUILD_CMS)
+    add_subdirectory(cms)
 endif()
